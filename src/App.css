@@ -337,125 +337,22 @@ h3 {
 }
 
 /* ═══════════════════════════════════════════
-   MEMORIES (FLIP CARDS)
+   OUR MEMORIES (PHOTOS SECTION)
    ═══════════════════════════════════════════ */
-.memories-section {
-  background: linear-gradient(180deg, #10101c 0%, #0e0e18 100%);
+.memories-photos-section {
+  background: linear-gradient(180deg, #10101c 0%, #151124 50%, #0e0e18 100%);
+  padding: 90px 24px;
+  min-height: auto;
 }
 
-.memories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  max-width: 520px;
-  width: 100%;
-  margin-top: 4px;
-}
-
-.memory-card {
-  perspective: 800px;
-  cursor: pointer;
-  height: 200px;
-  outline: none;
-}
-
-.memory-card:focus-visible .memory-front,
-.memory-card:focus-visible .memory-back {
-  outline: 2px solid #c9956b;
-  outline-offset: 4px;
-}
-
-.memory-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.memory-card.flipped .memory-inner {
-  transform: rotateY(180deg);
-}
-
-.memory-front,
-.memory-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 18px;
-  border: 1px solid rgba(201, 149, 107, 0.1);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.memory-front {
-  background: linear-gradient(
-    135deg,
-    rgba(201, 149, 107, 0.06),
-    rgba(212, 130, 158, 0.06)
-  );
-}
-
-.memory-card:not(.flipped):hover .memory-front {
-  border-color: rgba(201, 149, 107, 0.28);
-  box-shadow: 0 4px 24px rgba(201, 149, 107, 0.06);
-}
-
-.memory-emoji {
-  font-size: 2.2rem;
-  margin-bottom: 14px;
-}
-
-.memory-front h3 {
-  font-size: 0.92rem;
-  color: #e0d5c8;
-  text-align: center;
-  font-weight: 400;
-}
-
-.memory-back {
-  background: linear-gradient(
-    135deg,
-    rgba(201, 149, 107, 0.1),
-    rgba(212, 130, 158, 0.1)
-  );
-  transform: rotateY(180deg);
-  border-color: rgba(201, 149, 107, 0.18);
-}
-
-.memory-back p {
-  font-size: 0.85rem;
-  line-height: 1.75;
-  color: #d8cfc4;
-  text-align: center;
-}
-
-/* ═══════════════════════════════════════════
-   PHOTOS SECTION
-   ═══════════════════════════════════════════ */
-.photos-section {
-  background: linear-gradient(180deg, #0e0e18 0%, #131020 50%, #0e0e18 100%);
-  padding: 100px 24px;
-}
-
+/* ─── Photos Grid & Cards (Uncropped, Natural Fit) ─── */
 .photos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
   max-width: 980px;
   width: 100%;
-  margin-top: 8px;
-}
-
-@media (min-width: 820px) {
-  .photo-card-7 {
-    grid-column: 2 / 3;
-  }
+  align-items: start;
 }
 
 .photo-card {
@@ -487,37 +384,41 @@ h3 {
   outline-offset: 4px;
 }
 
+/* Uncropped Photo Frame: Adapts naturally to portrait & landscape photos */
 .photo-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  background: #141120;
+  background: #100e1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
   display: block;
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .photo-card:hover .photo-frame img {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 .photo-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 11, 20, 0.45);
+  background: rgba(11, 11, 20, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1.5px);
 }
 
 .photo-card:hover .photo-overlay {
@@ -574,7 +475,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 20px;
   animation: fadeIn 0.3s ease forwards;
 }
 
@@ -678,17 +579,20 @@ h3 {
 
 .lightbox-image-box {
   width: 100%;
-  max-height: 440px;
+  max-height: 480px;
   background: #090910;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 8px;
 }
 
 .lightbox-image-box img {
-  width: 100%;
-  max-height: 440px;
+  max-width: 100%;
+  max-height: 470px;
+  width: auto;
+  height: auto;
   object-fit: contain;
   display: block;
 }
@@ -880,9 +784,9 @@ h3 {
 }
 
 /* ═══════════════════════════════════════════
-   Responsive
+   Responsive Design (Mobile & Tablet)
    ═══════════════════════════════════════════ */
-@media (max-width: 820px) {
+@media (max-width: 860px) {
   .photos-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -893,13 +797,26 @@ h3 {
     padding: 64px 20px;
   }
 
-  .memories-grid {
-    grid-template-columns: 1fr;
-    max-width: 300px;
+  .memories-photos-section {
+    padding: 64px 16px;
   }
 
-  .memory-card {
-    height: 170px;
+  /* Phone Photo Grid: 1 column, uncropped, full view */
+  .photos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 360px;
+  }
+
+  .photo-frame {
+    border-radius: 12px;
+  }
+
+  .photo-frame img {
+    max-height: none;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .letter-card {
@@ -912,36 +829,41 @@ h3 {
     height: 280px;
   }
 
-  .photos-section {
-    padding: 70px 16px;
-  }
-
-  .photos-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 340px;
-  }
-
+  /* Lightbox Phone Optimization: Full-height portrait display */
   .lightbox-modal {
+    width: 95vw;
+    max-height: 92dvh;
     border-radius: 16px;
   }
 
   .lightbox-image-box {
-    max-height: 280px;
+    max-height: 56dvh;
+    padding: 4px;
+  }
+
+  .lightbox-image-box img {
+    max-height: 56dvh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   .lightbox-info {
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
 
   .lightbox-title {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
+  }
+
+  .lightbox-caption {
+    font-size: 0.82rem;
   }
 
   .lightbox-nav {
-    width: 38px;
-    height: 38px;
-    font-size: 1.4rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
   }
 
   .gift-lid {

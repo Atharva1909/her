@@ -1,76 +1,49 @@
 import { useState, useEffect, useRef } from 'react'
 
 /* ──────────────────────────────────────────
-   Memories Data
-   ────────────────────────────────────────── */
-const memories = [
-  {
-    emoji: '✨',
-    title: 'The Day We Met',
-    text: 'Some moments change everything. The day we met was one of those — and nothing has been the same since.',
-  },
-  {
-    emoji: '🌙',
-    title: 'Late Night Talks',
-    text: "The conversations that stretched until dawn, where we solved the world's problems and made each other laugh until it hurt.",
-  },
-  {
-    emoji: '🗺️',
-    title: 'Our Adventures',
-    text: 'Every adventure is better with you. Even the wrong turns became the best memories.',
-  },
-  {
-    emoji: '😂',
-    title: 'Uncontrollable Laughter',
-    text: "That one time we couldn't stop laughing and everyone around us thought we were completely insane.",
-  },
-]
-
-/* ──────────────────────────────────────────
    Photo Memories Data (7 Pictures)
-   Photos are loaded directly from public/photos/
    ────────────────────────────────────────── */
 const photos = [
   {
     id: 1,
     src: '/photos/photo1.jpg',
     title: 'Where It All Began',
-    caption: 'The moment that started our story — some friendships are written in the stars.',
+    caption: 'The moment that started our story tab pata nahi tha itte close honge, but I knew I wanted to be a part of your world.',
     tag: 'Chapter 01',
   },
   {
     id: 2,
     src: '/photos/photo2.jpg',
     title: 'Golden Hour Laughs',
-    caption: 'Tears streaming down our faces from laughing until our stomachs ached.',
+    caption: 'Tears streaming down our faces from laughing until our stomachs ached (me in awe seeing you fully dressed in that beautiful saree [lego man reaction]).',
     tag: 'Chapter 02',
   },
   {
     id: 3,
     src: '/photos/photo3.jpg',
     title: 'Unplanned Adventures',
-    caption: 'No map, no strict plan — just good music and the best company.',
+    caption: 'No map, no strict plan — just you n mee (and ofc mahi).',
     tag: 'Chapter 03',
   },
   {
     id: 4,
     src: '/photos/photo4.jpg',
     title: 'Late Night Corner',
-    caption: '3 AM talks where we shared our wildest dreams and deepest secrets.',
+    caption: 'Getting you out for your first nightout te pn permission gheun 😭😂.',
     tag: 'Chapter 04',
   },
   {
     id: 5,
     src: '/photos/photo5.jpg',
-    title: 'Coffee & Endless Talks',
-    caption: 'Another hour, another cup of coffee, and a thousand stories.',
+    title: 'Chicken Thali & Endless Talks',
+    caption: 'Another hour, another round of tupatla(ghee) bhat, and a thousand stories.',
     tag: 'Chapter 05',
   },
   {
     id: 6,
     src: '/photos/photo6.jpg',
     title: 'Pure Chaotic Energy',
-    caption: 'That one photo where neither of us could keep a straight face for two seconds.',
+    caption: 'That one photo where neither of us could keep a straight face for two seconds.kyuki agar kuch bolte toh gharwale dekhne ajate 😭',
     tag: 'Chapter 06',
   },
   {
@@ -151,7 +124,6 @@ function launchConfetti(canvas) {
 export default function App() {
   const [letterOpen, setLetterOpen] = useState(false)
   const [giftOpen, setGiftOpen] = useState(false)
-  const [flipped, setFlipped] = useState(new Set())
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null)
   const canvasRef = useRef(null)
 
@@ -190,13 +162,6 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [selectedPhotoIndex])
 
-  const toggleFlip = (i) =>
-    setFlipped((prev) => {
-      const next = new Set(prev)
-      next.has(i) ? next.delete(i) : next.add(i)
-      return next
-    })
-
   const openGift = () => {
     if (giftOpen) return
     setGiftOpen(true)
@@ -232,13 +197,13 @@ export default function App() {
           <p className="hero-pre anim-1">🎂</p>
           <p className="hero-subtitle anim-2">Happy Birthday</p>
           <h1 className="hero-title anim-3">
-            To My <span className="highlight">Best Friend</span>
+            To My <span className="highlight">Chavii</span>
           </h1>
           <p className="hero-tagline anim-4">✦ A little something just for you ✦</p>
         </div>
 
         <div className="scroll-hint anim-5">
-          <span>scroll down</span>
+          <span>scroll down(english samjh nahi ara toh niche scroll kar)</span>
           <span className="scroll-arrow">↓</span>
         </div>
       </section>
@@ -246,7 +211,7 @@ export default function App() {
       {/* ─────── LETTER ─────── */}
       <section className="section letter-section">
         <div className="fade-in">
-          <h2 className="section-title">A Letter For You</h2>
+          <h2 className="section-title">A Letter For tujhysathi</h2>
 
           <div
             className={`letter-card ${letterOpen ? 'open' : ''}`}
@@ -265,15 +230,18 @@ export default function App() {
               </div>
             ) : (
               <div className="letter-content">
-                <p className="letter-greeting">Dear Best Friend,</p>
+                <p className="letter-greeting">Dear Butki,</p>
                 <p>
-                  Another year of knowing you, and I still can't believe how lucky I am.
-                  You make the ordinary feel extraordinary, and you've been my constant
-                  through everything.
+                  Dekh jyada english bolu toh tu bore ho jaayegi kyuki waise bhi ati nahi toh gpt karuga, so I’ll keep it simple.
+                  From the moment we met, I knew there was something special about our friendship. 
+                  You’ve been my rock, my confidant, and my partner in crime through thick and thin.(sanika ke yaha jaisa doorbell bajake bhangenge hamesha lekin harbaar teko sath leke bhagunga)
+                  
                 </p>
                 <p>
                   Thank you for every laugh, every late-night conversation, and every
-                  moment that reminded me what true friendship feels like.
+                  moment that reminded me what true friendship feels like.Tu best hai yaar!!!
+                  khudko underestimate mat karna, tu bohot strong hai aur tujhpe hamesha proud feel hota hai.
+
                 </p>
                 <p>Here's to all the adventures still waiting for us.</p>
                 <p className="letter-sign">With all my love ❤️</p>
@@ -283,58 +251,24 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─────── MEMORIES ─────── */}
-      <section className="section memories-section">
+      {/* ─────── OUR MEMORIES ─────── */}
+      <section className="section memories-photos-section">
         <div className="fade-in">
           <h2 className="section-title">Our Memories</h2>
-          <p className="section-sub">tap a card to flip it</p>
-
-          <div className="memories-grid">
-            {memories.map((m, i) => (
-              <div
-                key={i}
-                className={`memory-card ${flipped.has(i) ? 'flipped' : ''}`}
-                onClick={() => toggleFlip(i)}
-                onKeyDown={(e) =>
-                  (e.key === 'Enter' || e.key === ' ') && toggleFlip(i)
-                }
-                role="button"
-                tabIndex={0}
-                aria-label={`${m.title} — tap to ${flipped.has(i) ? 'close' : 'read'}`}
-              >
-                <div className="memory-inner">
-                  <div className="memory-front">
-                    <span className="memory-emoji">{m.emoji}</span>
-                    <h3>{m.title}</h3>
-                  </div>
-                  <div className="memory-back">
-                    <p>{m.text}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────── PHOTOS SECTION ─────── */}
-      <section className="section photos-section">
-        <div className="fade-in">
-          <h2 className="section-title">Captured Moments</h2>
           <p className="section-sub">A few snapshots of us · tap to enlarge</p>
 
           <div className="photos-grid">
             {photos.map((p, i) => (
               <div
                 key={p.id}
-                className={`photo-card photo-card-${i + 1}`}
+                className="photo-card"
                 onClick={() => setSelectedPhotoIndex(i)}
                 onKeyDown={(e) =>
                   (e.key === 'Enter' || e.key === ' ') && setSelectedPhotoIndex(i)
                 }
                 role="button"
                 tabIndex={0}
-                aria-label={`${p.title} - tap to view photo`}
+                aria-label={`${p.title} - tap to view full photo`}
               >
                 <div className="photo-frame">
                   <img
