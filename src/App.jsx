@@ -15,7 +15,7 @@ const photos = [
     id: 2,
     src: '/photos/photo2.jpg',
     title: 'Golden Hour Laughs',
-    caption: 'Tears streaming down our faces from laughing until our stomachs ached (me in awe seeing you fully dressed in that beautiful saree [lego man reaction]).',
+    caption: 'Tears streaming down our faces from laughing until our stomachs ached  (me in awe seeing you fully dressed in that beautiful saree kyuki saree ke piche ka struggle maine dekha hai sry suna haiii [lego man reaction]).',
     tag: 'Chapter 02',
   },
   {
@@ -203,7 +203,7 @@ export default function App() {
         </div>
 
         <div className="scroll-hint anim-5">
-          <span>scroll down(english samjh nahi ara toh niche scroll kar)</span>
+          <span>scroll down(english samjh nahi arahi toh niche scroll kar) [MAZAK KARRAAA]</span>
           <span className="scroll-arrow">↓</span>
         </div>
       </section>
